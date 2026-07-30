@@ -34,16 +34,19 @@ test("server-renders Anish Tote's engineering portfolio", async () => {
   const html = await response.text();
   assert.match(
     html,
-    /<title>Anish Tote \| Embedded Systems, Automation &amp; AI<\/title>/i,
+    /<title>Anish Tote \| Engineering Systems &amp; Enterprise Applications<\/title>/i,
   );
-  assert.match(html, /I build systems/);
+  assert.match(html, /I engineer systems/);
+  assert.match(html, /Impetus Shortlist System/);
+  assert.match(html, /Impetus SO Notes System/);
+  assert.match(html, /Golden Batch CP6ML Dashboard/);
   assert.match(html, /Automatic Bottle Filling Machine/);
   assert.match(html, /Logicon Technosolutions Pvt Ltd/);
   assert.match(html, /mailto:anishtote5@gmail\.com/);
   assert.match(html, /\/Anish-Tote-Resume\.pdf/);
   assert.match(
     html,
-    /https:\/\/anish-tote-engineering\.example\/og\.png/,
+    /https:\/\/anish-tote-engineering\.example\/og\.jpg/,
   );
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/i);
 });

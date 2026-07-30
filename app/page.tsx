@@ -43,10 +43,69 @@ const projects = [
   },
 ];
 
+const enterpriseProjects = [
+  {
+    number: "01",
+    eyebrow: "ERP · Inventory",
+    title: "Impetus Shortlist System",
+    summary:
+      "A material-tracking and inventory workflow delivered both inside the Impetus ERP ecosystem and as a standalone application.",
+    outcome:
+      "One operational workflow, designed for integrated and standalone use.",
+    details: [
+      "Modelled material allocation and shortlist workflows",
+      "Designed a PostgreSQL schema for reliable, current inventory data",
+      "Built a responsive interface for desktop and mobile teams",
+    ],
+    tags: ["Next.js", "React", "Node.js", "PostgreSQL"],
+    accent: "blue",
+  },
+  {
+    number: "02",
+    eyebrow: "ERP · Collaboration",
+    title: "Impetus SO Notes System",
+    summary:
+      "Shared sales-order documentation with author attribution, complete timelines, and an audit-ready history of changes.",
+    outcome:
+      "Clearer team context and traceable decisions inside an existing ERP flow.",
+    details: [
+      "Implemented collaborative notes with author tracking",
+      "Captured modifications and user actions for review",
+      "Integrated the experience into the existing ERP interface",
+    ],
+    tags: ["Express", "PostgreSQL", "Next.js", "Audit trails"],
+    accent: "cyan",
+  },
+  {
+    number: "03",
+    eyebrow: "Manufacturing · Analytics",
+    title: "Golden Batch CP6ML Dashboard",
+    summary:
+      "A production analytics dashboard for the CP6ML shampoo line on Mixer-4, connecting batch data with quality variables.",
+    outcome:
+      "Analysis identified salt short-charge as the dominant production variable.",
+    details: [
+      "Created an interactive Streamlit monitoring experience",
+      "Structured production batch data in SQLite",
+      "Connected pH specifications with production outcomes",
+    ],
+    tags: ["Python", "Streamlit", "SQLite", "Data analysis"],
+    accent: "coral",
+  },
+];
+
 const skillGroups = [
   {
     label: "Programming",
-    skills: ["Python", "C"],
+    skills: ["Python", "C", "JavaScript"],
+  },
+  {
+    label: "Full-stack",
+    skills: ["Next.js", "React", "Node.js", "Express"],
+  },
+  {
+    label: "Data & BI",
+    skills: ["PostgreSQL", "SQLite", "Streamlit", "Data Analysis"],
   },
   {
     label: "Embedded",
@@ -62,7 +121,7 @@ const skillGroups = [
   },
   {
     label: "Web & tools",
-    skills: ["REST APIs", "Webhooks", "GitHub", "Streamlit"],
+    skills: ["REST APIs", "Webhooks", "GitHub", "ERP Integration"],
   },
 ];
 
@@ -87,6 +146,7 @@ export default function Home() {
 
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
+          <a href="#enterprise">Systems</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
         </nav>
@@ -111,17 +171,18 @@ export default function Home() {
             Available for internships &amp; engineering opportunities
           </div>
           <h1>
-            I build systems
-            <span> that move things</span>
-            <em>and ideas.</em>
+            I engineer systems
+            <span> for the real world</span>
+            <em>and the people in it.</em>
           </h1>
           <p className="hero-intro">
-            Electronics and Communication Engineering student working across
-            embedded systems, industrial automation, and practical AI.
+            Electronics engineer building enterprise applications, industrial
+            automation, and data products that turn complex operations into
+            clear, reliable workflows.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">
-              Explore my work <span aria-hidden="true">↓</span>
+            <a className="button button-primary" href="#enterprise">
+              View featured systems <span aria-hidden="true">↓</span>
             </a>
             <a
               className="button button-secondary"
@@ -135,8 +196,8 @@ export default function Home() {
 
         <div className="system-card" aria-label="Engineering focus overview">
           <div className="system-card-head">
-            <span>ACTIVE SYSTEM</span>
-            <span className="system-live">LIVE</span>
+            <span>ENGINEERING PROFILE</span>
+            <span className="system-live">OPEN TO WORK</span>
           </div>
           <div className="system-visual" aria-hidden="true">
             <span className="ring ring-one" />
@@ -150,34 +211,34 @@ export default function Home() {
           <div className="system-rows">
             <div>
               <span>01</span>
-              <p>Embedded systems</p>
-              <b>READY</b>
+              <p>Enterprise applications</p>
+              <b>BUILT</b>
             </div>
             <div>
               <span>02</span>
-              <p>PLC automation</p>
-              <b>READY</b>
+              <p>Industrial automation</p>
+              <b>BUILT</b>
             </div>
             <div>
               <span>03</span>
-              <p>Applied AI</p>
-              <b>LEARNING</b>
+              <p>Data &amp; analytics</p>
+              <b>BUILT</b>
             </div>
           </div>
         </div>
 
         <div className="hero-metrics">
           <div>
-            <strong>03</strong>
-            <span>Technical builds</span>
+            <strong>06</strong>
+            <span>Featured systems</span>
           </div>
           <div>
             <strong>~60%</strong>
             <span>Manual work reduced</span>
           </div>
           <div>
-            <strong>02</strong>
-            <span>Internship terms</span>
+            <strong>02×</strong>
+            <span>ERP deployment modes</span>
           </div>
           <div>
             <strong>Top 3</strong>
@@ -190,6 +251,10 @@ export default function Home() {
         <div className="signal-track">
           <span>Embedded systems</span>
           <i>◆</i>
+          <span>Enterprise applications</span>
+          <i>◆</i>
+          <span>Data analytics</span>
+          <i>◆</i>
           <span>Industrial automation</span>
           <i>◆</i>
           <span>Python development</span>
@@ -199,6 +264,10 @@ export default function Home() {
           <span>Applied AI</span>
           <i>◆</i>
           <span aria-hidden="true">Embedded systems</span>
+          <i aria-hidden="true">◆</i>
+          <span aria-hidden="true">Enterprise applications</span>
+          <i aria-hidden="true">◆</i>
+          <span aria-hidden="true">Data analytics</span>
           <i aria-hidden="true">◆</i>
           <span aria-hidden="true">Industrial automation</span>
           <i aria-hidden="true">◆</i>
@@ -218,21 +287,20 @@ export default function Home() {
         </div>
         <div className="profile-copy reveal">
           <p className="lead">
-            An engineer in training who likes finding the shortest path from a
-            messy real-world problem to a system that simply works.
+            I turn messy operational problems into systems people can actually
+            use, trust, and improve.
           </p>
           <div className="profile-columns">
             <p>
-              My experience sits where hardware, logic, and software meet. I
-              have worked with PLC-based automation in industrial environments,
-              built embedded and digital-design projects, and developed
-              webhook-powered chatbots in Python.
+              My work now spans the full engineering stack: PLC automation,
+              embedded and digital design, ERP-integrated applications,
+              database architecture, and manufacturing analytics.
             </p>
             <p>
-              I&apos;m especially interested in cost-effective systems that
-              improve reliability and reduce repetitive work - whether the
-              solution is ladder logic, a microcontroller, or a practical layer
-              of AI.
+              I&apos;m especially interested in systems that improve
+              reliability and reduce repetitive work—whether the right answer
+              is ladder logic, a PostgreSQL-backed application, or a focused
+              layer of analytics.
             </p>
           </div>
         </div>
@@ -288,16 +356,89 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section projects-section" id="projects">
+      <section className="section enterprise-section" id="enterprise">
         <div className="section-label">
           <span>03</span>
-          <p>Selected build log</p>
+          <p>Enterprise systems</p>
+        </div>
+        <div className="enterprise-content">
+          <div className="enterprise-heading reveal">
+            <div>
+              <p className="overline">Professional portfolio report</p>
+              <h2>Applications built around real operational work.</h2>
+            </div>
+            <p>
+              Full-stack delivery across ERP workflows, database architecture,
+              responsive interfaces, and manufacturing intelligence.
+            </p>
+          </div>
+
+          <div className="report-proof reveal" aria-label="Portfolio report summary">
+            <span>REPORT / 2026</span>
+            <strong>03 production-focused systems</strong>
+            <p>ERP integration · dual deployment · data-led decisions</p>
+          </div>
+
+          <div className="enterprise-grid">
+            {enterpriseProjects.map((project) => (
+              <article
+                className={`enterprise-card enterprise-${project.accent} reveal`}
+                key={project.number}
+              >
+                <div className="enterprise-card-head">
+                  <span>{project.number}</span>
+                  <p>{project.eyebrow}</p>
+                </div>
+                <h3>{project.title}</h3>
+                <p className="enterprise-summary">{project.summary}</p>
+                <div className="enterprise-outcome">
+                  <span>VALUE DELIVERED</span>
+                  <strong>{project.outcome}</strong>
+                </div>
+                <ul>
+                  {project.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+                <div className="tag-list">
+                  {project.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="report-achievements reveal">
+            <div>
+              <span>01</span>
+              <strong>Enterprise integration</strong>
+              <p>Built within established ERP workflows.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <strong>Audit-ready systems</strong>
+              <p>Designed for traceability and reliable review.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>Full-stack ownership</strong>
+              <p>From schema and API to responsive interface.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section projects-section" id="projects">
+        <div className="section-label">
+          <span>04</span>
+          <p>Engineering build log</p>
         </div>
         <div className="projects-heading reveal">
           <h2>Projects built around useful outcomes.</h2>
           <p>
-            Three different systems. One approach: understand the process,
-            design the logic, and remove friction.
+            Hardware, automation, and applied AI—each approached with the same
+            focus on useful, understandable outcomes.
           </p>
         </div>
         <div className="projects-grid">
@@ -331,16 +472,17 @@ export default function Home() {
 
       <section className="section skills-section" id="skills">
         <div className="section-label">
-          <span>04</span>
-          <p>Signal stack</p>
+          <span>05</span>
+          <p>Technical stack</p>
         </div>
         <div className="skills-layout">
           <div className="skills-copy reveal">
             <p className="overline">Capabilities</p>
-            <h2>Hardware-aware. Software-capable. Always learning.</h2>
+            <h2>From physical signals to production software.</h2>
             <p>
-              A practical toolkit shaped by industrial exposure, academic
-              projects, and independent experimentation.
+              A cross-disciplinary toolkit shaped by industrial exposure,
+              enterprise delivery, academic projects, and independent
+              experimentation.
             </p>
           </div>
           <div className="skill-matrix reveal">
@@ -361,7 +503,7 @@ export default function Home() {
 
       <section className="section learning-section">
         <div className="section-label">
-          <span>05</span>
+          <span>06</span>
           <p>Learning record</p>
         </div>
         <div className="learning-grid">

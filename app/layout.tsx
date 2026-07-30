@@ -23,14 +23,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(origin),
-    title: "Anish Tote | Embedded Systems, Automation & AI",
+    title: "Anish Tote | Engineering Systems & Enterprise Applications",
     description:
-      "Portfolio of Anish Tote, an Electronics and Communication Engineering student building embedded systems, PLC automation, and practical AI solutions.",
+      "Portfolio of Anish Tote—building enterprise applications, industrial automation, embedded systems, and manufacturing analytics.",
     keywords: [
       "Anish Tote",
       "embedded systems",
       "PLC automation",
       "electronics engineer",
+      "enterprise applications",
+      "Next.js",
+      "PostgreSQL",
+      "data analytics",
       "Python",
       "Pune",
     ],
@@ -38,12 +42,12 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       url: origin,
-      title: "Anish Tote | Embedded Systems, Automation & AI",
+      title: "Anish Tote | Engineering Systems & Enterprise Applications",
       description:
-        "Engineering systems that move things - and ideas. Explore projects in PLC automation, embedded systems, digital design, and applied AI.",
+        "Engineering systems for real operations. Explore enterprise applications, ERP integrations, automation, embedded systems, and analytics.",
       images: [
         {
-          url: `${origin}/og.png`,
+          url: `${origin}/og.jpg`,
           width: 1200,
           height: 630,
           alt: "Anish Tote engineering portfolio",
@@ -52,10 +56,10 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Anish Tote | Embedded Systems, Automation & AI",
+      title: "Anish Tote | Engineering Systems & Enterprise Applications",
       description:
-        "Engineering systems that move things - and ideas.",
-      images: [`${origin}/og.png`],
+        "Engineering systems, enterprise applications, and analytics.",
+      images: [`${origin}/og.jpg`],
     },
   };
 }
