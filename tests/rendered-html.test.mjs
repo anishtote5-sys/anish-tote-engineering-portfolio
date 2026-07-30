@@ -39,6 +39,7 @@ test("server-renders Anish Tote's engineering portfolio", async () => {
   assert.match(html, /I engineer systems/);
   assert.match(html, /Impetus Shortlist System/);
   assert.match(html, /Impetus SO Notes System/);
+  assert.match(html, /PO Approval &amp; Workflow System/);
   assert.match(html, /Golden Batch CP6ML Dashboard/);
   assert.match(html, /Automatic Bottle Filling Machine/);
   assert.match(html, /Logicon Technosolutions Pvt Ltd/);

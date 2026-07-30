@@ -78,6 +78,23 @@ const enterpriseProjects = [
   },
   {
     number: "03",
+    eyebrow: "ERP · Procurement",
+    title: "PO Approval & Workflow System",
+    summary:
+      "A purchase-order approval platform with parallel multi-stage reviews across Technical, Director, Cost, and Final Approver teams.",
+    outcome:
+      "Parallel routing removes sequential review bottlenecks while preserving a complete decision history.",
+    details: [
+      "Configured department assignments and role-based access per PO",
+      "Tracked approvals, rejections, forwarding actions, users, and timestamps",
+      "Enabled rejected POs to be resubmitted without losing voting history",
+      "Secured access with JWT authentication and bcrypt password hashing",
+    ],
+    tags: ["Next.js 16", "React 19", "TypeScript", "Prisma", "JWT"],
+    accent: "violet",
+  },
+  {
+    number: "04",
     eyebrow: "Manufacturing · Analytics",
     title: "Golden Batch CP6ML Dashboard",
     summary:
@@ -101,7 +118,14 @@ const skillGroups = [
   },
   {
     label: "Full-stack",
-    skills: ["Next.js", "React", "Node.js", "Express"],
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Prisma",
+    ],
   },
   {
     label: "Data & BI",
@@ -229,7 +253,7 @@ export default function Home() {
 
         <div className="hero-metrics">
           <div>
-            <strong>06</strong>
+            <strong>07</strong>
             <span>Featured systems</span>
           </div>
           <div>
@@ -375,8 +399,8 @@ export default function Home() {
 
           <div className="report-proof reveal" aria-label="Portfolio report summary">
             <span>REPORT / 2026</span>
-            <strong>03 production-focused systems</strong>
-            <p>ERP integration · dual deployment · data-led decisions</p>
+            <strong>04 production-focused systems</strong>
+            <p>ERP integration · approval workflows · data-led decisions</p>
           </div>
 
           <div className="enterprise-grid">
@@ -424,6 +448,11 @@ export default function Home() {
               <span>03</span>
               <strong>Full-stack ownership</strong>
               <p>From schema and API to responsive interface.</p>
+            </div>
+            <div>
+              <span>04</span>
+              <strong>Parallel approvals</strong>
+              <p>Multi-team review without sequential bottlenecks.</p>
             </div>
           </div>
         </div>

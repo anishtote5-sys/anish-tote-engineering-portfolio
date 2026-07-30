@@ -38,6 +38,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--signal), var(--teal));
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+  content: "";
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
 body::selection {
   background: var(--teal);
   color: var(--ink);
@@ -869,7 +884,7 @@ a {
 
 .enterprise-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -889,7 +904,7 @@ a {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.18);
   transition:
     border-color 220ms ease,
-    transform 220ms ease,
+    translate 220ms ease,
     box-shadow 220ms ease;
 }
 
@@ -917,7 +932,7 @@ a {
 .enterprise-card:hover {
   border-color: color-mix(in srgb, var(--card-accent) 48%, transparent);
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.28);
-  transform: translateY(-7px);
+  translate: 0 -7px;
 }
 
 .enterprise-blue {
@@ -933,6 +948,11 @@ a {
 .enterprise-coral {
   --card-accent: var(--coral);
   --card-glow: rgba(255, 107, 94, 0.14);
+}
+
+.enterprise-violet {
+  --card-accent: var(--violet);
+  --card-glow: rgba(167, 139, 250, 0.16);
 }
 
 .enterprise-card-head {
@@ -1032,7 +1052,7 @@ a {
 
 .report-achievements {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 1rem;
   border: 1px solid var(--line);
   border-radius: 1.3rem;
@@ -1121,14 +1141,15 @@ a {
     rgba(255, 255, 255, 0.018);
   transition:
     background 220ms ease,
-    transform 220ms ease;
+    border-color 220ms ease,
+    translate 220ms ease;
 }
 
 .project-card:hover {
   z-index: 2;
   border-color: rgba(96, 165, 250, 0.42);
   background: rgba(59, 130, 246, 0.075);
-  transform: translateY(-6px);
+  translate: 0 -6px;
 }
 
 .project-topline {
@@ -1528,21 +1549,164 @@ footer a {
   }
 }
 
+@supports (animation-timeline: scroll()) {
+  body::before {
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes scroll-progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
 @supports (animation-timeline: view()) {
   .reveal {
-    animation: reveal linear both;
-    animation-range: entry 10% cover 34%;
+    animation: reveal-up linear both;
+    animation-range: entry 4% cover 32%;
     animation-timeline: view();
   }
 
-  @keyframes reveal {
+  .section-label {
+    animation: reveal-label linear both;
+    animation-range: entry 2% cover 28%;
+    animation-timeline: view();
+  }
+
+  .enterprise-card,
+  .project-card {
+    animation: reveal-card linear both;
+    animation-range: entry 5% cover 30%;
+    animation-timeline: view();
+  }
+
+  .enterprise-card:nth-child(even),
+  .project-card:nth-child(even) {
+    animation-name: reveal-card-alt;
+  }
+
+  .skill-row {
+    animation: reveal-row linear both;
+    animation-range: entry 2% cover 24%;
+    animation-timeline: view();
+  }
+
+  .education-card {
+    animation: reveal-panel-left linear both;
+    animation-range: entry 5% cover 30%;
+    animation-timeline: view();
+  }
+
+  .cert-card {
+    animation: reveal-panel-right linear both;
+    animation-range: entry 5% cover 30%;
+    animation-timeline: view();
+  }
+
+  .enterprise-section::after {
+    animation: scan-line linear both;
+    animation-range: entry 0% exit 100%;
+    animation-timeline: view();
+    transform-origin: top;
+  }
+
+  @keyframes reveal-up {
     from {
       opacity: 0;
-      transform: translateY(2rem);
+      filter: blur(8px);
+      transform: translateY(2.8rem);
     }
     to {
       opacity: 1;
+      filter: blur(0);
       transform: translateY(0);
+    }
+  }
+
+  @keyframes reveal-label {
+    from {
+      opacity: 0;
+      transform: translateX(-1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes reveal-card {
+    from {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translate3d(0, 3.5rem, 0) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  @keyframes reveal-card-alt {
+    from {
+      opacity: 0;
+      filter: blur(6px);
+      transform: translate3d(1.6rem, 3.5rem, 0) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+  }
+
+  @keyframes reveal-row {
+    from {
+      opacity: 0;
+      transform: translateX(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes reveal-panel-left {
+    from {
+      opacity: 0;
+      transform: translateX(-2.5rem) rotate(-0.8deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(0);
+    }
+  }
+
+  @keyframes reveal-panel-right {
+    from {
+      opacity: 0;
+      transform: translateX(2.5rem) rotate(0.8deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(0);
+    }
+  }
+
+  @keyframes scan-line {
+    from {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    20%,
+    80% {
+      opacity: 0.75;
+    }
+    to {
+      opacity: 0;
+      transform: scaleY(1);
     }
   }
 }
@@ -1752,7 +1916,11 @@ footer a {
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body::before {
+    display: none;
   }
 }
